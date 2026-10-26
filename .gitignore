@@ -1,0 +1,8 @@
+.env
+.env.txt
+node_modules/
+.DS_Store
+*.log
+credenciales*.json
+n8n/BACKUP_WORKFLOW_ANTES_HTTP_TOOL.json
+n8n/WORKFLOW_CORREGIDO_EXPORTADO.json

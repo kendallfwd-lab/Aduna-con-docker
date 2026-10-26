@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#102b43"/>
+  <title>ADUANA / Centro de Inventario</title>
+  <link rel="stylesheet" href="/styles.css"/>
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">A</div><div><strong>ADUANA<span>360</span></strong><small>LABORATORIO #03</small></div></div>
+      <div class="side-label">CENTRO DE OPERACIONES</div>
+      <a class="nav-link active" href="#inventario"><span>▦</span> Inventario general</a>
+      <a class="nav-link" href="#estadisticas"><span>◫</span> Indicadores</a>
+      <a class="nav-link" href="http://localhost:5678" target="_blank" rel="noopener noreferrer"><span>✳</span> Agente IA / n8n <b>↗</b></a>
+      <div class="sidebar-bottom"><span class="pulse"></span> Sistema académico · Datos simulados<br><small>No corresponde a la aduana real</small></div>
+    </aside>
+    <main>
+      <header class="topbar"><span>OPERACIONES / INVENTARIO</span><span id="conexion" class="health">● Conectando…</span></header>
+      <div class="page">
+        <div class="eyebrow">GESTIÓN DE COMERCIO EXTERIOR · COSTA RICA</div>
+        <section class="heading">
+          <div><h1>Inventario <em>aduanero.</em></h1><p>Control de mercancías, declaraciones y almacenaje en un solo lugar.</p></div>
+          <a class="cta" href="http://localhost:5678" target="_blank" rel="noopener noreferrer">Abrir agente de IA ↗</a>
+        </section>
+        <section id="estadisticas" class="kpis">
+          <article class="kpi"><span>REGISTROS DE MERCANCÍAS</span><strong id="kpi-total">—</strong><small>Tipos y lotes ingresados</small></article>
+          <article class="kpi"><span>UNIDADES EN INVENTARIO</span><strong id="kpi-unidades">—</strong><small>Unidades registradas</small></article>
+          <article class="kpi alert"><span>MERCANCÍAS RETENIDAS</span><strong id="kpi-retenidas">—</strong><small>Requieren atención</small></article>
+          <article class="kpi"><span>MERCANCÍAS LIBERADAS</span><strong id="kpi-liberadas">—</strong><small>Autorizadas para retiro</small></article>
+        </section>
+        <section class="info-row">
+          <div class="info-copy"><div class="dot"></div><div><strong>¿Qué mercancías de China siguen retenidas en la bodega 2?</strong><p>Esta es la pregunta de ejemplo del laboratorio. Consultá aquí con los mismos filtros o preguntale al agente de DeepSeek en n8n.</p></div></div>
+          <button type="button" id="ejemplo">Aplicar ejemplo</button>
+        </section>
+        <section id="inventario" class="inventory-card">
+          <div class="inventory-heading"><div><h2>Mercancías registradas</h2><p>Los filtros consultan directamente PostgreSQL.</p></div><span id="contador">Cargando…</span></div>
+          <form id="filtros" class="filters">
+            <label>PAÍS DE ORIGEN<input id="pais" placeholder="Ej. China"/></label>
+            <label>BODEGA<input id="bodega" placeholder="Ej. Bodega 2"/></label>
+            <label>ESTADO<select id="estado"><option value="">Todos los estados</option><option>RETENIDA</option><option>EN_INSPECCION</option><option>EN_DEPOSITO</option><option>LIBERADA</option></select></label>
+            <button type="submit">Consultar</button>
+          </form>
+          <div class="table-scroll"><table><thead><tr><th>MERCANCÍA</th><th>ORIGEN</th><th>ALMACENAJE</th><th>UNIDADES</th><th>ESTADO</th><th>DECLARACIÓN</th></tr></thead><tbody id="filas"><tr><td colspan="6">Cargando inventario…</td></tr></tbody></table></div>
+          <div class="table-note">Laboratorio de programación · Datos y tasas arancelarias ficticias.</div>
+        </section>
+        <footer>ADUANA360 — SQL + PostgreSQL + DeepSeek + n8n <span>Proyecto didáctico · 2026</span></footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+
